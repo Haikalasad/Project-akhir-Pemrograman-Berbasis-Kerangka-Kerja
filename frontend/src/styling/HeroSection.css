@@ -1,0 +1,75 @@
+/* HeroSection.css */
+*{
+    font-family: 'Poppins';
+}
+
+.hero-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px;
+    margin-top: 30px;
+  }
+  
+  .left-section {
+    flex: 1;
+    color: black;
+    text-align: left;
+    margin-left: 30px; /* Geser ke kanan */
+    justify-content: center;
+    align-items: center;
+    
+  }
+  
+  .left-section h1 {
+    font-family: 'Poppins';
+    font-size: 64px;
+    margin-bottom: 20px;
+    font-weight: 600;
+  }
+  
+  .left-section p {
+    font-size: 20px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    text-wrap: 20;
+    font-weight: 400;
+  }
+  
+  .left-section button {
+    background-color: #FBDB32;
+    color: #085CFA;
+    padding: 12px 24px;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .left-section button:hover {
+    background-color: #0561EB;
+    color: #fff;
+  }
+  
+  .right-section {
+    flex: 1;
+    height: 450px;
+    overflow: hidden;
+    border-radius: 20px;
+    position: relative;
+    justify-content: flex-end;
+    margin-left: 50px; /* Geser ke kanan */
+  }
+  
+  .right-section img {
+    margin-top: 10px;
+    max-width: 100%; 
+    max-height: 100%;
+    object-fit: cover;
+    border-top-right-radius: 100px;
+    border-bottom-left-radius: 100px;
+    align-items: center;
+  }
+  
