@@ -1,0 +1,58 @@
+/* NavbarComponent.css */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #0561EB;
+  color: #fff;
+  
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.container{
+  padding : 5px
+}
+.title {
+  font-size: 24px;
+  margin-left: 20px;
+  font-family: 'Poppins';
+  font-weight: 400;
+}
+
+.menu {
+  display: flex; /* Tambahkan display: flex; untuk membuat list rata sejajar */
+  align-items: center;
+
+  justify-content: center;
+}
+.menu ul{
+  display: flex;
+  justify-self: center;
+  align-items: center;
+
+}
+.menu li {
+  margin: 5px 15px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  list-style: none;
+}
+
+.menu li:hover {
+  color: #F6DA44;
+}
+
+.login span {
+  background-color: #FFD700;
+  color: #0561EB;
+  padding: 8px 15px;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.login span:hover {
+  background-color: #0561EB;
+  color: #fff;
+}

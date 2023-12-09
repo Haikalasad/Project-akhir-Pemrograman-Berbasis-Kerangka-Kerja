@@ -1,0 +1,67 @@
+/* PopularSection.css */
+* {
+    font-family: 'Poppins';
+  }
+  
+  .popular-section {
+    text-align: center;
+    padding: 40px;
+  }
+  
+  .popular-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 20px;
+  }
+  
+  .popular-card {
+    width: 300px;
+    margin: 20px;
+    padding: 20px;
+    background-color: #f8f8f8; 
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .popular-card:hover {
+    transform: scale(1.05);
+  }
+  
+  .popular-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .popular-card h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #333; 
+  }
+  
+  .popular-card p {
+    font-size: 16px;
+    color: #666;     
+    margin-bottom: 10px;
+  }
+  
+  .popular-card button {
+    background-color: #0561EB;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .popular-card button:hover {
+    background-color: #fff;
+    color: #0561EB;
+  }
+  
