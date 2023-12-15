@@ -6,7 +6,37 @@
   .popular-section {
     text-align: center;
     padding: 40px;
+    margin-top: 50px;
   }
+  
+  .popular-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-right: 80px;
+
+  }
+  
+  .popular-header h1 {
+    font-weight: 600;
+    font-size: 36px;
+    color: #333;
+    margin: 0;
+    margin-left: 80px;
+  }
+  
+  .popular-header a {
+    font-size: 16px;
+    color: #0561EB;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .popular-header a:hover {
+    color: #0349a2;
+  }
+  
   
   .popular-cards {
     display: flex;
@@ -64,4 +94,5 @@
     background-color: #fff;
     color: #0561EB;
   }
+
   
