@@ -1,0 +1,96 @@
+*{
+    font-family: 'Poppins';
+}
+
+.Hero-section{
+    width: 100vw;
+    height: 30vh;
+    background-color: #FCFCFC;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.text{
+    text-align: center;
+}
+.text h1{
+    font-size: 64px;
+    font-weight: 600;
+    
+}
+.search-section {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+  }
+  
+  .search-section input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    width: 400px;
+    margin-right: 15px;
+  }
+  
+  .search-icon {
+    font-size: 20px;
+    color: #555;
+  }
+  .kost-section {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .kost-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  
+  .kost-card {
+    width: 300px;
+    margin: 20px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+  
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+  
+  .kost-card img {
+    width: 100%;
+    height: 200px; /* Set a fixed height for the images */
+    object-fit: cover; /* Ensure images maintain aspect ratio while covering the specified height */
+    border-radius: 5px;
+  }
+  
+  .kost-card h3 {
+    margin-top: 10px;
+    font-size: 1.5em;
+  }
+  
+  .kost-card p {
+    margin: 5px 0;
+    color: #555;
+  }
+  
+  .kost-card a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+    display: block;
+    margin-top: 10px;
+  }
+  
+  .kost-card a:hover {
+    text-decoration: underline;
+  }

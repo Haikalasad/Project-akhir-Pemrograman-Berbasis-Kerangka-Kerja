@@ -7,7 +7,7 @@ const connection = require('../config/database');
  * INDEX ARTIKEL
  */
 router.get('/all', function (req, res) {
-    connection.query('SELECT * FROM kost ORDER BY id', function (err, rows) {
+    connection.query('SELECT kost.id,kost.nama,kost.alamat,kost.jarak,kost.foto,kost.deskripsi,jenis_kost.jenis,kategori_pemesanan.kategori,kost.harga FROM kost JOIN jenis_kost ON jenis_kost.id = kost.id_jenis JOIN kategori_pemesanan ON kategori_pemesanan.id = kost.id_kategori ', function (err, rows) {
         if (err) {
             return res.status(500).json({
                 status: false,
