@@ -1,0 +1,239 @@
+/* Global Styles */
+:root {
+    --white: #fff;
+    --biru-kostku: #0561eb;
+    --black: #000;
+  }
+
+  /* Component Styles */
+  .about-us {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .about-us .div {
+    background-color: var(--white);
+    height: 2644px;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+  
+  .about-us .group {
+    height: 430px;
+    left: 80px;
+    position: absolute;
+    top: 90px;
+    width: 1313px;
+  }
+  
+  .about-us .frame {
+    height: 430px;
+    left: 694px;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    width: 615px;
+  }
+  
+  .about-us .kostku-aplikasi {
+    color: #000000;
+    font-family: "Poppins-Bold", Helvetica;
+    font-size: 40px;
+    font-weight: 700;
+    left: 0;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 12px;
+    width: 406px;
+  }
+  
+  .about-us .text-wrapper {
+    color: var(--black);
+    font-family: "Poppins-Regular", Helvetica;
+    font-size: 32px;
+    font-weight: 400;
+    left: 0;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 209px;
+    width: 600px;
+  }
+  
+  .about-us .group-2 {
+    height: 360px;
+    left: 80px;
+    position: absolute;
+    top: 1283px;
+    width: 1255px;
+  }
+  
+  .about-us .p {
+    color: var(--black);
+    font-family: "Poppins-Regular", Helvetica;
+    font-size: 32px;
+    font-weight: 400;
+    left: 697px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 160px;
+    width: 554px;
+  }
+  
+  .about-us .text-wrapper-2 {
+    color: #000000;
+    font-family: "Poppins-Bold", Helvetica;
+    font-size: 40px;
+    font-weight: 700;
+    left: 699px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 12px;
+    width: 406px;
+  }
+  
+  .about-us .img {
+    height: 360px;
+    left: 0;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    width: 563px;
+  }
+  
+  .about-us .group-3 {
+    height: 558px;
+    left: 71px;
+    position: absolute;
+    top: 1755px;
+    width: 1244px;
+  }
+  
+  .about-us .text-wrapper-3 {
+    color: var(--black);
+    font-family: "Poppins-Regular", Helvetica;
+    font-size: 32px;
+    font-weight: 400;
+    left: 0;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    text-align: right;
+    top: 258px;
+    width: 554px;
+  }
+  
+  .about-us .data-kos-seluruh {
+    color: #000000;
+    font-family: "Poppins-Bold", Helvetica;
+    font-size: 40px;
+    font-weight: 700;
+    left: 148px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    text-align: right;
+    top: 110px;
+    width: 406px;
+  }
+  
+  .about-us .frame2 {
+    height: 558px;
+    left: 679px;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    width: 561px;
+  }
+  
+  .about-us .overlap-group-wrapper {
+    height: 219px;
+    left: 0;
+    position: absolute;
+    top: 2425px;
+    width: 1442px;
+  }
+  
+  .about-us .overlap-group {
+    background-color: var(--biru-kostku);
+    height: 219px;
+    position: relative;
+    width: 1440px;
+  }
+  
+  .about-us .text-wrapper-4 {
+    color: #ffffff;
+    font-family: "Poppins-Medium", Helvetica;
+    font-size: 24px;
+    font-weight: 500;
+    left: 631px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 48px;
+  }
+  
+  .about-us .group-4 {
+    height: 58px;
+    left: 596px;
+    position: absolute;
+    top: 113px;
+    width: 248px;
+  }
+  
+  .about-us .instagram {
+    height: 58px;
+    left: 95px;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    width: 58px;
+  }
+  
+  .about-us .facebook {
+    height: 58px;
+    left: 0;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    width: 58px;
+  }
+  
+  .about-us .whatsapp {
+    height: 58px;
+    left: 190px;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    width: 58px;
+  }
+  
+  .about-us .komputer-wrapper {
+    background-color: var(--biru-kostku);
+    height: 572px;
+    left: 0;
+    position: absolute;
+    top: 601px;
+    width: 1440px;
+  }
+  
+  .about-us .komputer {
+    height: 367px;
+    left: 234px;
+    object-fit: cover;
+    position: absolute;
+    top: 103px;
+    width: 964px;
+  }
+
+  
+  

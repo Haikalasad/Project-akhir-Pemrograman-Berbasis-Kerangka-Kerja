@@ -12,6 +12,7 @@ function NavbarComponent() {
 
   return (
     <div className="navbar">
+
       <div className="container">
         <div className="title">
           <h3>Kostku</h3>
@@ -36,6 +37,7 @@ function NavbarComponent() {
           <span onClick={() => navigateTo('/login')}>Login</span>
         </div>
       </div>
+
     </div>
   );
 }
