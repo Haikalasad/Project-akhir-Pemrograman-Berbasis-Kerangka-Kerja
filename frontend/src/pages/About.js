@@ -1,9 +1,13 @@
+import NavbarComponent from "../components/Navbar";
+import AboutUs from "../components/aboutUs";
+
 const About = () =>{
     return(
-        <div>
-
-            <h1>ini halaman about</h1>
-        </div>
+    <div>
+        <NavbarComponent/>
+      <AboutUs/>
+    </div>
+     
     )
 }
 
