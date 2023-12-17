@@ -1,24 +1,35 @@
-import React, { createContext, useContext, useState } from 'react';
+// UserContext.js
+import React, { createContext, useContext, useState, useEffect } from 'react';
 
-// Buat konteks untuk pengguna
 const UserContext = createContext();
 
-// Fungsi penyedia konteks yang akan digunakan di komponen induk
 export const UserProvider = ({ children }) => {
-  const [userId, setUserId] = useState(null);
+  // Mengecek apakah ada user ID yang tersimpan di local storage saat aplikasi dimuat
+  const initialUserId = localStorage.getItem('userId') || null;
+  const [userId, setUserId] = useState(initialUserId);
 
-  const loginUser = (id) => {
+  useEffect(() => {
+    // Menyimpan user ID ke local storage setiap kali nilai berubah
+    localStorage.setItem('userId', userId);
+  }, [userId]);
+
+  const login = (id) => {
     setUserId(id);
+    // Tambahan logika lain yang diperlukan setelah login
+  };
+
+  const logout = () => {
+    setUserId(null);
+    // Tambahan logika lain yang diperlukan setelah logout
   };
 
   return (
-    <UserContext.Provider value={{ userId, loginUser }}>
+    <UserContext.Provider value={{ userId, login, logout }}>
       {children}
     </UserContext.Provider>
   );
 };
 
-// Fungsi hook untuk menggunakan konteks pengguna di komponen anak
 export const useUser = () => {
   const context = useContext(UserContext);
   if (!context) {

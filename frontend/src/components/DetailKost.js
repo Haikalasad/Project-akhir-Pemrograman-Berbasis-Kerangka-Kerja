@@ -1,11 +1,13 @@
-// DetailKost.js
 import React, { useState, useEffect } from 'react';
 import { FaHeart } from 'react-icons/fa';
 import OrderPopup from './OrderPopUp';
 import '../styling/DetailKost.css';
-// ... (other imports)
+import { useUser } from '../UserContext';
 
 const DetailKost = ({ id }) => {
+  const { userId, loading } = useUser();
+  console.log('User ID:', userId);
+
   const [kostDetails, setKostDetails] = useState(null);
   const [showPopup, setShowPopup] = useState(false);
   const [formData, setFormData] = useState({
@@ -15,19 +17,18 @@ const DetailKost = ({ id }) => {
   });
   const [totalPrice, setTotalPrice] = useState(0);
 
-  const userId = 2;
+  useEffect(() => {
+    if (!loading) {
+      fetch(`http://localhost:3001/api/kost/detail/${id}`)
+        .then(response => response.json())
+        .then(data => setKostDetails(data.data))
+        .catch(error => console.error('Error fetching kost details:', error));
+    }
+  }, [id, loading]);
 
   useEffect(() => {
-    fetch(`http://localhost:3001/api/kost/detail/${id}`)
-      .then(response => response.json())
-      .then(data => setKostDetails(data.data))
-      .catch(error => console.error('Error fetching kost details:', error));
-  }, [id]);
-
-  useEffect(() => {
-    // Calculate total price whenever startDate or endDate changes
     calculateTotalPrice();
-  }, [formData.startDate, formData.endDate]);
+  }, [formData.startDate, formData.endDate, kostDetails]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -52,7 +53,6 @@ const DetailKost = ({ id }) => {
   };
 
   const handleOrderConfirmation = () => {
-    // Check if kostDetails is available
     if (!kostDetails) {
       console.error('Error: kostDetails is null');
       return;
@@ -65,7 +65,6 @@ const DetailKost = ({ id }) => {
       Tanggal_berakhir: formData.endDate,
       Total: totalPrice,
       kategori: formData.category,
-      // Add other necessary fields
     };
 
     fetch(`http://localhost:3001/api/kost/order/${userId}`, {
@@ -88,7 +87,6 @@ const DetailKost = ({ id }) => {
       .catch(error => console.error('Error confirming order:', error));
   };
 
-  // Check if kostDetails is null before trying to destructure
   if (!kostDetails) {
     return <p className="loading">Loading...</p>;
   }
@@ -123,12 +121,11 @@ const DetailKost = ({ id }) => {
             <p>Kategori: {kategori}</p>
             <p>Jenis: {jenis}</p>
             <p>Alamat : {alamat}</p>
-            <p>Harga: {Harga}</p>
+            <p className='harga'>Harga: {Harga}</p>
           </div>
           <button className="pesanButton" onClick={() => setShowPopup(true)}>
             Pesan
           </button>
-        
         </div>
       </div>
 
