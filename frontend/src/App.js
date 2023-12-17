@@ -6,19 +6,22 @@ import About from './pages/About';
 import Login from './pages/Login';
 import DetailPage from './pages/DetailPage';
 import Eksplor from './pages/eksplor';
-
+import { UserProvider } from './UserContext';
+import Myorder from './pages/MyOrder';
 
 function App() {
   return (
     <Router>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/detail/:id" element={<DetailPage />} />
-        <Route path="/explore" element={<Eksplor />} />
-
-      </Routes>
+<UserProvider/>
+        <Routes>
+          <Route path="/home" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/" element={<Login />} />
+          <Route path="/detail/:id" element={<DetailPage />} />
+          <Route path="/explore" element={<Eksplor />} />
+          <Route path="/myorder" element={<Myorder />} />
+        </Routes>
+<UserProvider/>
     </Router>
   );
 }

@@ -19,6 +19,13 @@
   overflow: hidden;
   margin-top: 30px;
 }
+.tanggal_awal{
+  font-weight: 600;
+}
+.tanggal_akhir{
+  font-weight: 600;
+}
+
 
 .productImage {
   flex: 1;
@@ -77,7 +84,11 @@ h1 {
   color: #666;
   margin-bottom: 5px;
 }
-
+.harga{
+  text-align: right;
+  font-size: 18px;
+  font-weight: 600;
+}
 .pesanButton {
   background-color: #FBDB32;
   color: #085CFA;
