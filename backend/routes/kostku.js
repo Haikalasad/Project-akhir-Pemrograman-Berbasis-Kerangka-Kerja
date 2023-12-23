@@ -6,6 +6,99 @@ const connection = require('../config/database');
 /**
  * INDEX ARTIKEL
  */
+
+router.post('/signup', [
+  body('nama').notEmpty(),
+  body('email').isEmail(),
+  body('password').isLength({ min: 6 }),
+],  (req, res) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+      return res.status(422).json({
+          status: false,
+          message: 'Invalid input data',
+          errors: errors.array(),
+      });
+  }
+
+  let formData = {
+    nama: req.body.nama,
+    email: req.body.email,
+    password: req.body.password
+}
+
+
+  connection.query('INSERT INTO users SET ?', formData, function (err, result) {
+      if (err) {
+          console.error(err);
+          return res.status(500).json({
+              status: false,
+              message: 'Internal Server Error',
+          });
+      }
+
+      return res.status(200).json({
+          status: true,
+          message: 'Signup successful',
+          user: result[0],
+      });
+  });
+});
+
+
+router.post('/login', [
+    body('email').notEmpty(),
+    body('password').notEmpty(),
+], async function (req, res) {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        return res.status(400).json({
+            status: false,
+            message: 'Invalid input data',
+            errors: errors.array(),
+        });
+    }
+
+    const { email, password } = req.body;
+
+    const userQuery = 'SELECT * FROM users WHERE email = ?';
+    connection.query(userQuery, [email], function (err, rows) {
+    
+    
+        if (err) {
+            console.error(err);
+            return res.status(500).json({
+                status: false,
+                message: 'Internal Server Error',
+            });
+        }
+        if (rows.length === 0) {
+            return res.status(404).json({
+                status: false,
+                message: 'User not found',
+            });
+        }
+        const user = rows[0];
+        const userId = user.id; // Ambil ID pengguna
+        if (password !== user.password) {
+            return res.status(401).json({
+                status: false,
+                message: 'Invalid password',
+            });
+        }
+
+    
+        return res.status(200).json({
+            status: true,
+            message: 'Login successful',
+            user: {
+                id : userId
+            
+            },
+        });
+    });
+});
+
 router.post('/login', [
     body('email').notEmpty(),
     body('password').notEmpty(),
