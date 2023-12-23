@@ -8,6 +8,7 @@ import DetailPage from './pages/DetailPage';
 import Eksplor from './pages/eksplor';
 import { UserProvider } from './UserContext';
 import Myorder from './pages/MyOrder';
+import SignUp from './pages/SignUp';
 
 function App() {
   return (
@@ -20,6 +21,8 @@ function App() {
           <Route path="/detail/:id" element={<DetailPage />} />
           <Route path="/explore" element={<Eksplor />} />
           <Route path="/myorder" element={<Myorder />} />
+          <Route path="/signup" element={<SignUp />} />
+
         </Routes>
 <UserProvider/>
     </Router>
