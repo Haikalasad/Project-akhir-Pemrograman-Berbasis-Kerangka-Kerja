@@ -1,6 +1,6 @@
 // OrderPopup.js
 import React from 'react';
-import '../styling/OrderPopup.css'; 
+import '../styling/OrderPopup.css';
 
 const OrderPopup = ({
   formData,
@@ -25,8 +25,9 @@ const OrderPopup = ({
 
             <label htmlFor="category">Kategori:</label>
             <select id="category" name="category" value={category} onChange={onChange}>
-              <option value="harian">Harian</option>
-              <option value="bulanan">Bulanan</option>
+              <option value="1">Bulan</option>
+              <option value="2">Hari</option>
+              <option value="3">Minggu</option>
             </select>
           </div>
         </form>

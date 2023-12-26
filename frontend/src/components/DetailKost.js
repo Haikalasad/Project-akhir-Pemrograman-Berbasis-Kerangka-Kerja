@@ -13,7 +13,7 @@ const DetailKost = ({ id }) => {
   const [formData, setFormData] = useState({
     startDate: '',
     endDate: '',
-    category: 'harian',
+    category: '',
   });
   const [totalPrice, setTotalPrice] = useState(0);
 
@@ -64,7 +64,7 @@ const DetailKost = ({ id }) => {
       Tanggal_mulai: formData.startDate,
       Tanggal_berakhir: formData.endDate,
       Total: totalPrice,
-      kategori: formData.category,
+      Kategori: formData.category,
     };
 
     fetch(`http://localhost:3001/api/kost/order/${userId}`, {
