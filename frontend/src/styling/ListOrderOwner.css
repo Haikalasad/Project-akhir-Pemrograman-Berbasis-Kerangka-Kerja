@@ -1,0 +1,112 @@
+/* MyOrder.css */
+*{
+    font-family: 'Poppins';
+}
+.myorder-section {
+    margin: 20px auto;
+    padding: 10px;
+    width: 80%;
+  }
+  
+  .myorder-title {
+    border-bottom: 1px solid #8a8a8a;
+    font-size: 36px;
+    font-weight: 600;
+  }
+  
+  .orderDetails {
+    display: flex;
+    margin-bottom: 20px;
+    margin-top: 45px;
+  }
+  
+  .orderImage {
+    flex: 1;
+    overflow: hidden;
+  }
+  
+  .fotokost img {
+    width: 100%;
+    height: 51vh; /* Adjust the height as needed */
+    border-radius: 8px 0 0 8px;
+  }
+  
+  .orderInfo {
+    flex: 1;
+    margin-left: 30px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .header-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .like-section {
+    display: flex;
+  }
+  
+  .loveIcon {
+    color: red;
+    margin-right: 10px;
+  }
+  
+  .namaOrder {
+    font-size: 36px;
+    font-weight: bold;
+  }
+  .detail-section{
+    margin-top: 24px;
+  }
+  .detail {
+    margin-top: 10px;
+    font-size: 22px;
+    margin-bottom: 20px;
+    
+  }
+  
+  .tanggal{
+    margin-top: 20px;
+    font-weight: 600;
+  }
+  
+  .status{
+    font-weight: 600;
+    color: red;
+  }
+  
+  .kostDeskripsi {
+    color: #555;
+  }
+  
+  .additionalInfo p {
+    color: #666;
+    margin-bottom: 10px;
+  }
+  .harga{
+    text-align: right;
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 40px;
+  }
+  .konfirmasi {
+    background-color: #FBDB32;
+    color: #085CFA;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 15px;
+    font-weight: 600;
+  }
+  
+  .konfirmasi:hover {
+    background-color: #085CFA;
+    color: white;
+  }
+  
+  
+  

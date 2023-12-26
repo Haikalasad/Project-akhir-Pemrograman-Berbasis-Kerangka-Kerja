@@ -46,20 +46,24 @@ const MyOrder = () => {
                 <p className="kostDeskripsi">{order.deskripsi}</p>
               </div>
               <div className="additionalInfo">
-                <p className='tanggal_awal'>Tanggal mulai: {formatDateString(order.Tanggal_mulai)}</p>
-                <p className='tanggal_akhir'>Tanggal akhir: {formatDateString(order.Tanggal_berakhir)}</p>
                 <p>Fasilitas: {order.fasilitas}</p>
                 <p>Alamat: {order.alamat}</p>
                 <p>Jarak: {order.jarak} Km</p>
                 <p>Jenis: {order.jenis}</p>
-                <p className='harga'>Total Harga: Rp {order.Harga}</p>
+                <p className='status'>Status Pesanan: {order.status_pesanan}</p>
+                <p className='tanggal'>Rentang tanggal: {formatDateString(order.Tanggal_mulai)} - {formatDateString(order.Tanggal_berakhir)} </p>
+    
+                <p className='harga'>Total Harga: Rp {order.Total}</p>
               </div>
               <button className="invoiceButton">Invoice</button>
             </div>
+            
           </div>
+          
         ))
       )}
     </div>
+    
   );
 };
 

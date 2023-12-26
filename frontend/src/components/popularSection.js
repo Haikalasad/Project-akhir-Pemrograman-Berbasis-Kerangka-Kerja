@@ -13,7 +13,7 @@ const PopularSection = () => {
     // Fetch popular Kosts data
     fetch(`http://localhost:3001/api/kost/popularKost?userId=${userId}`)
       .then(response => response.json())
-      .then(data => setPopularKosts(data.data.slice(0, 4))) // Limit to 4 items
+      .then(data => setPopularKosts(data.data.slice(0, 3))) // Limit to 4 items
       .catch(error => console.error('Error fetching popular kosts:', error));
   }, [userId]); // Pastikan userId dimasukkan sebagai dependensi
 

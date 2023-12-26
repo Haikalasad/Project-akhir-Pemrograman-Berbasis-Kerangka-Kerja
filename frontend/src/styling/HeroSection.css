@@ -22,7 +22,7 @@
 
 .left-section h1 {
   font-family: 'Poppins';
-  font-size: 68px;
+  font-size: 58px;
 
   font-weight: 600;
 }
@@ -64,9 +64,10 @@
 }
 
 .right-section img {
-  margin-top: 10px;
-  max-width: 90%;
-  max-height: 90%;
+  margin-top: 40px;
+  margin-left: 30px;
+  width: 90%;
+  height:90%;
   object-fit: cover;
   border-top-right-radius: 100px;
   border-bottom-left-radius: 100px;
