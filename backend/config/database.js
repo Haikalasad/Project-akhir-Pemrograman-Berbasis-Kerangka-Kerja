@@ -4,7 +4,7 @@ let connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: '',
-    database: 'kostku2'
+    database: 'kostku'
 
 });
 
