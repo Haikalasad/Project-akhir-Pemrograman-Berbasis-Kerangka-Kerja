@@ -45,6 +45,50 @@ router.post('/signup', [
   });
 });
 
+
+router.post('/signup/owner', [
+  body('nama').notEmpty(),
+  body('email').isEmail(),
+  body('no_hp').notEmpty(),
+  body('alamat').notEmpty(),
+  body('password').isLength({ min: 6 }),
+], (req, res) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(422).json({
+      status: false,
+      message: 'Invalid input data',
+      errors: errors.array(),
+    });
+  }
+
+  let formData = {
+    nama: req.body.nama,
+    email: req.body.email,
+    no_hp: req.body.no_hp,
+    alamat: req.body.alamat,
+    password: req.body.password
+  }
+
+
+  connection.query('INSERT INTO owner SET ?', formData, function (err, result) {
+    if (err) {
+      console.error(err);
+      return res.status(500).json({
+        status: false,
+        message: 'Internal Server Error',
+      });
+    }
+
+    return res.status(200).json({
+      status: true,
+      message: 'Signup successful',
+      user: result[0],
+    });
+  });
+});
+
+
 router.post('/login', [
   body('email').notEmpty(),
   body('password').notEmpty(),
