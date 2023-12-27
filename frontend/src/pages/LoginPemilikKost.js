@@ -90,7 +90,7 @@ function LoginOwner() {
           padding: '30px',
         }}
       >
-        <h1>Login</h1>
+        <h1>Login Owner</h1>
 
         <div
           style={{
@@ -186,7 +186,7 @@ function LoginOwner() {
         )}
         <div>
           <span>Belum punya akun? </span>
-          <a href='/signup'>Daftar</a>
+          <a href='/signup/owner'>Daftar</a>
         </div>
       </div>
     </div>
