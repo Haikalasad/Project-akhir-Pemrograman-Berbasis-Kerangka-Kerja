@@ -30,7 +30,11 @@ const ExploreSearch = ({ allKosts, onFilterAndSort }) => {
       filtered.sort((a, b) => a.harga - b.harga);
     } else if (sortOption === 'highest') {
       filtered.sort((a, b) => b.harga - a.harga);
-    }
+    } else if (sortOption === 'proximity') {
+      filtered.sort((a, b) => a.jarak - b.jarak);
+    } else if (sortOption === 'popularity') {
+      filtered.sort((a, b) => b.suka - a.suka);
+    }  
 
     // Call the prop function to update the parent component with the results
     onFilterAndSort(filtered);
@@ -73,6 +77,8 @@ const ExploreSearch = ({ allKosts, onFilterAndSort }) => {
       <option value="none">Urutkan</option>
       <option value="lowest">Harga terendah</option>
       <option value="highest">Harga tertinggi</option>
+      <option value="proximity">Terdekat</option>
+      <option value="popularity">Populer</option>
     </select>
 
   
