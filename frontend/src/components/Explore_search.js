@@ -11,20 +11,29 @@ const ExploreSearch = ({ allKosts, onFilterAndSort }) => {
   useEffect(() => {
     // Create a copy of the original data to avoid modifying it directly
     let filtered = [...allKosts];
-
+  
     // Filter by gender
     filtered = filtered.filter(
       (kost) =>
         selectedGender === 'all' || kost.jenis.toLowerCase() === selectedGender
     );
-
+  
     // Filter by search query
     filtered = filtered.filter(
       (kost) =>
         kost.nama.toLowerCase().includes(searchQuery.toLowerCase()) ||
         kost.alamat.toLowerCase().includes(searchQuery.toLowerCase())
     );
+  
+    // Filter by popularity
+    if (sortOption === 'popularity') {
+      filtered = filtered.filter((kost) => kost.suka > 0);
+    }
 
+    if (filtered.length === 0) {
+      console.log('No results after filtering.');
+    }
+  
     // Sort the filtered data
     if (sortOption === 'lowest') {
       filtered.sort((a, b) => a.harga - b.harga);
@@ -35,10 +44,11 @@ const ExploreSearch = ({ allKosts, onFilterAndSort }) => {
     } else if (sortOption === 'popularity') {
       filtered.sort((a, b) => b.suka - a.suka);
     }  
-
+  
     // Call the prop function to update the parent component with the results
     onFilterAndSort(filtered);
   }, [selectedGender, sortOption, searchQuery, allKosts, onFilterAndSort]);
+  
 
   const handleGenderChange = (e) => {
     setSelectedGender(e.target.value);
