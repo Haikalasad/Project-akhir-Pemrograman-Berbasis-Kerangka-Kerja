@@ -125,7 +125,7 @@ const SignUpOwner = () => {
         </button>
         <div className="login-link">
           <span>Sudah Punya Akun? </span>
-          <a href='/'>Login</a>
+          <a href='/login/pemilik'>Login</a>
         </div>
       </div>
     </div>
