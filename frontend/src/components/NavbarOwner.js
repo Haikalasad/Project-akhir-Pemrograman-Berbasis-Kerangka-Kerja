@@ -25,7 +25,7 @@ function NavbarOwner() {
             <li className={location.pathname === '/pesanan' ? 'active' : ''} onClick={() => navigateTo('/pesanan')}>
             Pesanan
             </li>
-            <li className={location.pathname === '/about' ? 'active' : ''} onClick={() => navigateTo('/about')}>
+            <li className={location.pathname === '/about/owner' ? 'active' : ''} onClick={() => navigateTo('/about/owner')}>
               About
             </li>
           </ul>
