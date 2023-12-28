@@ -14,6 +14,7 @@ import Dashboard from './pages/DashboardOwner';
 import LoginOwner from './pages/LoginPemilikKost';
 import Pesanan from './pages/pesanan';
 import SignUpOwner from './pages/SignupOwner';
+import AboutOwner from './pages/AboutOwner';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path="/" element={<ChooseRole />} />
           <Route path="/home" element={<Home />} />
           <Route path="/about" element={<About />} />
+          <Route path="/about/owner" element={<AboutOwner />} />
           <Route path="/login/pencari" element={<Login />} />
           <Route path="/detail/:id" element={<DetailPage />} />
           <Route path="/explore" element={<Eksplor />} />

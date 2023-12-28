@@ -31,20 +31,20 @@ export const AboutUs = () => {
           <div className="data-kos-seluruh">
             Data Kos Mencakup Seluruh Surabaya
           </div>
-          <img className="frame2" alt="Frame3" src="./assets/frame3.png" />
+          <img className="frame2" alt="Frame3" src="../assets/frame3.png" />
         </div>
         <div className="overlap-group-wrapper">
           <div className="overlap-group">
             <div className="text-wrapper-4">Hubungi Kami:</div>
             <div className="group-4">
-              <img className="instagram" alt="Instagram" src="./assets/instagram.png" />
-              <img className="facebook" alt="Facebook" src="./assets/facebook.png" />
-              <img className="whatsapp" alt="Whatsapp" src="./assets/whatsapp.png" />
+              <img className="instagram" alt="Instagram" src="../assets/instagram.png" />
+              <img className="facebook" alt="Facebook" src="../assets/facebook.png" />
+              <img className="whatsapp" alt="Whatsapp" src="../assets/whatsapp.png" />
             </div>
           </div>
         </div>
         <div className="komputer-wrapper">
-          <img className="komputer" alt="Komputer" src=".\assets\komputer.png" />
+          <img className="komputer" alt="Komputer" src="../assets/komputer.png" />
         </div>
       </div>
     </div>
