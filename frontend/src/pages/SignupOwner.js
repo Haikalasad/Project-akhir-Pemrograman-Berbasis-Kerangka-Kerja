@@ -24,7 +24,7 @@ const SignUpOwner = () => {
 
       if (response.status === 200) {
         console.log('Signup successful:', response.data);
-        navigate('/login/pencari');
+        navigate('/login/pemilik');
       } else {
         console.error('Signup failed:', response.data.message);
       }
