@@ -130,7 +130,12 @@ router.post('/login', [
       });
     }
 
-
+const token=jwt.sign({id:userId}, "jwtkey")
+res.cookie("accsess_token",token, {
+  httpOnly: true,
+}).status(200).json({ 
+  token:token
+})
     return res.status(200).json({
       status: true,
       message: 'Login successful',
