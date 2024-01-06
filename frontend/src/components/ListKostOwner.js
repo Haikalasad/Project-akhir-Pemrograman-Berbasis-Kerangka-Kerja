@@ -98,6 +98,7 @@ const Kostmu = () => {
       kategori: newKostData.kategori,
       jarak: newKostData.jarak,
     };
+    console.log(formData)
 
     fetch('http://localhost:3001/api/kost/add-kost', {
       method: 'POST',
@@ -105,6 +106,7 @@ const Kostmu = () => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(formData),
+      
     })
       .then(response => response.json())
       .then(data => {
