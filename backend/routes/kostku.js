@@ -2,10 +2,35 @@ const express = require('express');
 const router = express.Router();
 const { body, validationResult } = require('express-validator');
 const connection = require('../config/database');
+const cookieParser = require('cookie-parser');
+const jwt = require('jsonwebtoken');
 
-/**
- * INDEX ARTIKEL
- */
+const jwtSecretKey = 'KUNCI_RAHASIA';
+
+function verifyToken(req, res, next) {
+  const token = req.cookies.access_token;
+  if (!token) {
+    return res.status(403).json({
+      status: false,
+      message: 'Access denied. Token is missing.',
+    });
+  }
+
+  jwt.verify(token, jwtSecretKey, (err, user) => {
+    if (err) {
+      console.error('JWT Verification Error:', err);
+      return res.status(403).json({
+        status: false,
+        message: 'Access denied. Invalid token.',
+      });
+    }
+    req.user = user;
+    next();
+  });
+}
+
+router.use(cookieParser());
+
 
 router.post('/signup', [
   body('nama').notEmpty(),
@@ -106,8 +131,6 @@ router.post('/login', [
 
   const userQuery = 'SELECT * FROM users WHERE email = ?';
   connection.query(userQuery, [email], function (err, rows) {
-
-
     if (err) {
       console.error(err);
       return res.status(500).json({
@@ -115,14 +138,18 @@ router.post('/login', [
         message: 'Internal Server Error',
       });
     }
+
     if (rows.length === 0) {
       return res.status(404).json({
         status: false,
         message: 'User not found',
       });
     }
+
     const user = rows[0];
-    const userId = user.id; // Ambil ID pengguna
+    const userId = user.id;
+
+    // Check if the provided password matches the stored password (replace with your actual password hashing mechanism)
     if (password !== user.password) {
       return res.status(401).json({
         status: false,
@@ -130,23 +157,25 @@ router.post('/login', [
       });
     }
 
-const token=jwt.sign({id:userId}, "jwtkey")
-res.cookie("accsess_token",token, {
-  httpOnly: true,
-}).status(200).json({ 
-  token:token
-})
+    // User authentication is successful
+    // Generate JWT
+    const token = jwt.sign({ id: userId }, jwtSecretKey, { expiresIn: '1h' });
+
+    // Set the token as a cookie
+    res.cookie('access_token', token, { httpOnly: true, maxAge: 3600000 }); // Max age in milliseconds
+
+    // Send the user ID and token in the response
     return res.status(200).json({
       status: true,
       message: 'Login successful',
       user: {
-        id: userId
-
+        id: userId,
+        // Include other user information if needed
       },
+      token: token,
     });
   });
 });
-
 router.post('/login/owner', [
   body('email').notEmpty(),
   body('password').notEmpty(),
@@ -188,14 +217,20 @@ router.post('/login/owner', [
       });
     }
 
+    const token = jwt.sign({ id: ownerId }, jwtSecretKey, { expiresIn: '1h' });
 
+    // Set the token as a cookie
+    res.cookie('access_token', token, { httpOnly: true, maxAge: 3600000 }); // Max age in milliseconds
+
+    // Send the user ID and token in the response
     return res.status(200).json({
       status: true,
       message: 'Login successful',
       user: {
-        id: ownerId
-
+        id: ownerId,
+        email : email
       },
+      token: token,
     });
   });
 });
@@ -212,6 +247,7 @@ router.get('/all', function (req, res) {
         status: true,
         message: 'List Data Kost',
         data: rows,
+        user : req.user
       });
     }
   });
@@ -310,7 +346,7 @@ router.get('/detail/:id', function (req, res) {
     });
   });
 });
-router.get('/orders/:userId', (req, res) => {
+router.get('/orders/:userId',(req, res) => {
   try {
     const userId = req.params.userId;
 
@@ -435,7 +471,7 @@ router.post('/add-kost', [
   body('kategori').notEmpty(),
   body('harga').notEmpty(),
   body('id_pemilik').notEmpty(),
-], async (req, res) => {
+],verifyToken, async (req, res) => {
   try {
     // Validate request body
     const errors = validationResult(req);
@@ -447,7 +483,6 @@ router.post('/add-kost', [
       });
     }
 
-    // Destructure the required fields from the request body
     const {
       nama,
       alamat,
@@ -461,7 +496,6 @@ router.post('/add-kost', [
       id_pemilik,
     } = req.body;
 
-    // SQL query for inserting a new Kost
     const query = `
         INSERT INTO kost (nama, alamat, jarak, foto, deskripsi, fasilitas, id_jenis, id_kategori, harga, id_pemilik)
         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)

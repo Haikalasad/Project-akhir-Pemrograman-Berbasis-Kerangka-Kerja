@@ -14,6 +14,8 @@ const MyOrder = () => {
       .catch(error => console.error('Error fetching orders:', error));
   }, [userId]);
 
+  console.log(userId)
+
   const formatDateString = dateString => {
     const options = { year: 'numeric', month: 'long', day: 'numeric' };
     const formattedDate = new Date(dateString).toLocaleDateString(undefined, options);
